@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/bootstrap.css">
+    <title>Formulario</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-info">
+  <a class="navbar-brand" href="#">Proveedores</a>
+  </div>
+</nav>
+<br>
+<section class="container bg-dark text-light" style="border-radius: 5px;">
+<form  action="javascript:Procesar()">
+  
+    
+    <div class="form-group">
+      <label for="clave">Clave</label>
+      <input type="text" class="form-control" id="clave" placeholder="1 a 10 dígitos" minlength="1" maxlength="10" required>
+    </div>
+
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input type="text" class="form-control" id="nombre" placeholder="1 a 50 caracteres" minlength="1" maxlength="50" required>
+    </div>
+
+    <div class="form-group">
+      <label for="telefono">Teléfono</label>
+      <input type="text" class="form-control" id="telefono" placeholder="10 a 14 dígitos"minlength="10" maxlength="14" required>
+    </div>
+    <div class="form-group">
+      <label for="fecha">Fecha</label>
+      <input type="date" class="form-control" id="fecha"  autofocus required>
+      <br>
+      <div class="form-group">
+        <label for="select">Pan</label>
+       <select name="bizcochos" id="select" multiple size="5" class="form-control">
+         <option value="concha">Concha</option>
+         <option value="churro">Churro</option>
+         ´<option value="dona">Dona</option>
+         <option value="bigote">Bigote</option>
+         <option value="cuernito">Cuernito</option>
+       </select>
+      </div>
+      <br>
+
+    <input type="submit" value="Calcular" class="btn btn-info btn-block" id="calcular">
+    <input type="reset" class="btn btn-danger btn-block" value="Limpiar">
+  </div>
+  
+  <div class="form-group">
+    <label for="resultado">Resultado</label>
+    <p id="resultado" class="text-dark" style=" margin: auto; /*background-color: aqua;*/ background: -webkit-linear-gradient(to right, #50dcff, #00ff22); background: linear-gradient(to right, #00ccff, #48ff00); border-radius: 10px;"></p>
+  </div>
+
+  <br>
+ <!-- <div class="form-group">
+    <label for="resultado">Resultado2</label>
+    <p id="resultado2" style="background-color: aquamarine;"></p>
+  </div> -->
+</form>
+</section>
+<footer class="container">
+  <br>
+  <br>
+  <a href="index.html"><button class="btn btn-block btn-success">Inicio</button></a>
+  <br>
+  <br>
+</footer>
+<script src="JS/bootstrap.js"></script>
+<script src="JS/bignumber.min.js"></script>
+<script src="JS/numeral.min.js"></script>
+<script>
+  var select = document.getElementsByName("select");
+  function Procesar (){
+    var fecha = document.getElementById('fecha').value,
+    clave = document.getElementById('clave').value,
+    nombre = document.getElementById('nombre').value,
+    tel = document.getElementById('telefono').value,
+    pan = document.getElementById('select').value;
+    var fecha1 = new Date(fecha);
+
+    document.getElementById("resultado").innerHTML= "La clave es : " + clave + "<br>"+" El nombre ingresado es : " + nombre +"<br>"+" El teléfono ingresado es: "+ tel +"<br>"+"La fecha ingresada es: " + fecha1.toLocaleDateString() + "<br>" + "El pan en su canasa es : " + pan;
+  }
+  select.addEventListener("click", valida, false);
+
+  function valida (){
+    
+  }
+ // salidaResultado.textContent ="Hola";
+</script>
+</body>
+</html>
